@@ -17,13 +17,6 @@
             <artifactId>tiktok-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
-        <!-- 添加依赖，为了打包成war -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 
 </project>

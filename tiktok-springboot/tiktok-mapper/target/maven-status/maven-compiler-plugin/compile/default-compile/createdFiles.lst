@@ -1,0 +1,8 @@
+com/tiktok/mapper/UsersMapper.class
+com/tiktok/mapper/VideosMapper.class
+com/tiktok/mapper/UsersReportMapper.class
+com/tiktok/mapper/SearchRecordsMapper.class
+com/tiktok/mapper/UsersLikeVideosMapper.class
+com/tiktok/mapper/CommentsMapper.class
+com/tiktok/mapper/UsersFansMapper.class
+com/tiktok/mapper/BgmMapper.class
