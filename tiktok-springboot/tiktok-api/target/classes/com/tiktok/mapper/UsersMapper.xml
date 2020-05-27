@@ -1,25 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.imooc.com.tiktok.mapper.UsersMapper">
-  <resultMap id="BaseResultMap" type="com.imooc.com.tiktok.pojo.Users">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.imooc.mapper.UsersMapper" >
+  <resultMap id="BaseResultMap" type="com.imooc.pojo.Users" >
     <!--
       WARNING - @mbg.generated
     -->
-    <result column="USER" jdbcType="CHAR" property="user" />
-    <result column="CURRENT_CONNECTIONS" jdbcType="BIGINT" property="currentConnections" />
-    <result column="TOTAL_CONNECTIONS" jdbcType="BIGINT" property="totalConnections" />
-  </resultMap>
-  <resultMap id="BaseResultMap" type="com.imooc.com.tiktok.pojo.Users">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="face_image" jdbcType="VARCHAR" property="faceImage" />
-    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
-    <result column="fans_counts" jdbcType="INTEGER" property="fansCounts" />
-    <result column="follow_counts" jdbcType="INTEGER" property="followCounts" />
-    <result column="receive_like_counts" jdbcType="INTEGER" property="receiveLikeCounts" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="face_image" property="faceImage" jdbcType="VARCHAR" />
+    <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+    <result column="fans_counts" property="fansCounts" jdbcType="INTEGER" />
+    <result column="follow_counts" property="followCounts" jdbcType="INTEGER" />
+    <result column="receive_like_counts" property="receiveLikeCounts" jdbcType="INTEGER" />
   </resultMap>
 </mapper>
