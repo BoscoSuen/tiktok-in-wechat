@@ -4,6 +4,8 @@ import com.tiktok.pojo.Users;
 import com.tiktok.service.UserService;
 import com.tiktok.utils.MD5Utils;
 import com.tiktok.utils.TiktokSONResult;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Api(value = "用户注册登录接口", tags = {"注册和登陆的controller"})
 public class RegisterLoginController {
 
 	@Autowired
 	private UserService userService;
-	
+
+	@ApiOperation(value = "用户登录", notes = "用户注册接口")
 	@PostMapping("/regist")
 	public TiktokSONResult Hello(@RequestBody Users user) throws Exception {
 		// 1. 判断用户名密码不能为空

@@ -7,7 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages= {"com.tiktok"})
+@MapperScan(basePackages = "com.tiktok.mapper")
+@ComponentScan(basePackages= {"com.tiktok", "org.n3r.idworker"})
 public class Application {
 	
 	public static void main(String[] args) {
