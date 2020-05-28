@@ -1,5 +1,6 @@
 {
-  "pages":[
+  "pages": [
+    "pages/userLogin/login",
     "pages/userRegist/regist",
     "pages/index/index"
   ],
@@ -8,5 +9,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "TikTok",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap80.json"
 }
