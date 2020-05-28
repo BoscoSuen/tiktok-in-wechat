@@ -2,3 +2,4 @@ tiktok-springboot/.idea/
 tiktok-springboot/tiktok-springboot.iml
 .DS_Store
 */.DS_Store
+.history/
