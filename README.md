@@ -12,6 +12,7 @@ To install the prerequisite environment, you can follow the following help links
 * [Apache Maven v3.5](https://maven.apache.org/install.html)
 * [MySQL v5.7](https://www.mysql.com/downloads/)
 * [Tomcat](https://tomcat.apache.org/whichversion.html)
+* [Redis](https://redis.io/)
 
 ## RoadMap
 - [x] **Init Wechat Miniprogram framework and Spring-boot framework**  
