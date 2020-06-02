@@ -2,3 +2,4 @@ com/tiktok/Application.class
 com/tiktok/controller/RegisterLoginController.class
 com/tiktok/Swagger2.class
 com/tiktok/controller/HelloWorldController.class
+com/tiktok/controller/BasicController.class

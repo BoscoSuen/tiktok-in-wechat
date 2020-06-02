@@ -11,6 +11,7 @@
 /Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-common/src/main/java/org/n3r/idworker/WorkerIdStrategy.java
 /Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-common/src/main/java/org/n3r/idworker/utils/Serializes.java
 /Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-common/src/main/java/com/tiktok/utils/MyMapper.java
+/Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-common/src/main/java/com/tiktok/utils/RedisOperator.java
 /Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-common/src/main/java/org/n3r/idworker/utils/Props.java
 /Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-common/src/main/java/org/n3r/idworker/InvalidSystemClock.java
 /Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-common/src/main/java/org/n3r/idworker/strategy/FileLock.java

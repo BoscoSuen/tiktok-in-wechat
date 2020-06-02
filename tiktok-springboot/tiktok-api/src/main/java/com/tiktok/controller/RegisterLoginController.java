@@ -1,23 +1,37 @@
 package com.tiktok.controller;
 
 import com.tiktok.pojo.Users;
+import com.tiktok.pojo.vo.UsersVO;
 import com.tiktok.service.UserService;
 import com.tiktok.utils.MD5Utils;
 import com.tiktok.utils.TiktokSONResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 @Api(value = "用户注册登录接口", tags = {"注册和登陆的controller"})
-public class RegisterLoginController {
+public class RegisterLoginController extends BasicController {
 
 	@Autowired
 	private UserService userService;
+
+	public UsersVO setUserRedisSessionToken(Users user) {
+		String uniqueToken = UUID.randomUUID().toString();
+		redis.set(USER_REDIS_SESSION + ":" + user.getId(), uniqueToken, 1000 * 60 * 30); // ttl 30min
+
+		UsersVO userVO = new UsersVO();
+		BeanUtils.copyProperties(user, userVO);
+		userVO.setUserToken(uniqueToken);
+		return userVO;
+	}
 
 	@ApiOperation(value = "用户登录", notes = "用户注册接口")
 	@PostMapping("/regist")
@@ -44,7 +58,17 @@ public class RegisterLoginController {
 		}
 
 		user.setPassword("");	// 前端无法查看密码
-		return TiktokSONResult.ok(user);
+
+//		String uniqueToken = UUID.randomUUID().toString();
+//		redis.set(USER_REDIS_SESSION + ":" + user.getId(), uniqueToken, 1000 * 60 * 30); // ttl 30min
+//
+//		UsersVO userVO = new UsersVO();
+//		BeanUtils.copyProperties(user, userVO);
+//		userVO.setUserToken(uniqueToken);
+
+		UsersVO userVO = setUserRedisSessionToken(user);
+
+		return TiktokSONResult.ok(userVO);
 	}
 
 	@ApiOperation(value="用户登录", notes = "用户登录接口")
@@ -65,7 +89,8 @@ public class RegisterLoginController {
 		// 3. 返回
 		if (userResult != null) {
 			userResult.setPassword("");
-			return TiktokSONResult.ok(userResult);
+			UsersVO userVO = setUserRedisSessionToken(userResult);
+			return TiktokSONResult.ok(userVO);
 		} else {
 			return TiktokSONResult.errorMsg("用户名或密码不正确, 请重试...");
 		}
