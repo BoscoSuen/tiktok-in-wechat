@@ -6,6 +6,7 @@ import com.tiktok.service.UserService;
 import com.tiktok.utils.MD5Utils;
 import com.tiktok.utils.TiktokSONResult;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -33,7 +34,7 @@ public class RegisterLoginController extends BasicController {
 		return userVO;
 	}
 
-	@ApiOperation(value = "用户登录", notes = "用户注册接口")
+	@ApiOperation(value = "用户注册", notes = "用户注册接口")
 	@PostMapping("/regist")
 	public TiktokSONResult Hello(@RequestBody Users user) throws Exception {
 		// 1. 判断用户名密码不能为空
@@ -95,6 +96,14 @@ public class RegisterLoginController extends BasicController {
 			return TiktokSONResult.errorMsg("用户名或密码不正确, 请重试...");
 		}
 
+	}
+
+	@ApiOperation(value="用户注销", notes = "用户注销接口")
+	@ApiImplicitParam(name = "userId", value="用户id", required = true, dataType = "String", paramType = "query")
+	@PostMapping("/logout")
+	public TiktokSONResult login(String userId) throws Exception {
+		redis.del(USER_REDIS_SESSION + ":" + userId);
+		return TiktokSONResult.ok();
 	}
 	
 }

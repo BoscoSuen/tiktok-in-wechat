@@ -16,5 +16,6 @@ To install the prerequisite environment, you can follow the following help links
 
 ## RoadMap
 - [x] **Init Wechat Miniprogram framework and Spring-boot framework**  
-- [x] Build database in MySQL and generate code with **Mybatis**
+- [x] **Build database in MySQL and generate code with Mybatis**
 - [x] **Register and Login** 
+- [x] **Setup Redis Session**
