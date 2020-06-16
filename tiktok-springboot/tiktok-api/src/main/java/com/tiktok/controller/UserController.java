@@ -37,6 +37,11 @@ public class UserController extends BasicController {
 	@PostMapping("/uploadFace")
 	public TiktokSONResult login(String userId, @RequestParam("file") MultipartFile[] files) throws Exception {
 
+		if (StringUtils.isBlank(userId)) {
+			return TiktokSONResult.errorMsg("id不能为空");
+		}
+
+
 		// 文件保存的命名空间
 		String fileSpace = "/Users/suen/project/tiktok-dev";
 
@@ -67,15 +72,23 @@ public class UserController extends BasicController {
 					// IOUtils: org.apache.common.io
 					IOUtils.copy(inputStream, fileOutputStream);
 				}
+			} else {
+				return TiktokSONResult.errorMsg("上传错误");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+			return TiktokSONResult.errorMsg("上传错误");
 		} finally {
 			if (fileOutputStream != null) {
 				fileOutputStream.flush();
 				fileOutputStream.close();
 			}
 		}
+
+		Users user = new Users();
+		user.setId(userId);
+		user.setFaceImage(uploadPathDB);
+		userService.updateUserInfo(user);
 
 		return TiktokSONResult.ok();
 	}
