@@ -22,4 +22,4 @@ To install the prerequisite environment, you can follow the following help links
 - [x] **Build database in MySQL and generate code with Mybatis**
 - [x] **Register and Login** 
 - [x] **Setup Redis Session and complete logout**
-- [x] **User uploads profile photo**
+- [x] **Show user profile**
