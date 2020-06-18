@@ -6,11 +6,11 @@ This is a project to build a Tiktok like app in wechat, running as a wechat mini
 
 
 <p align="center">
-  <img src="images/login.jpg" width="256" height="455">
+  <img src="images/login.jpg" width="375" height="667">
 </p>
 
 <p align="center">
-  <img src="images/me.jpg" width="256" height="200">
+  <img src="images/me.jpg" width="375" height="300">
 </p>
 
 ## Installation
