@@ -4,8 +4,14 @@
 
 This is a project to build a Tiktok like app in wechat, running as a wechat miniprogram. The project is based on [Wechat Miniprogram framework](https://developers.weixin.qq.com/miniprogram/en/dev/framework/), [Spring boot](https://spring.io/projects/spring-boot), and [MySQL](https://www.mysql.com/) as database.
 
-![](images/login.jpg)
-![](images/me.jpg)
+
+<p align="center">
+  <img src="images/login.jpg" width="256" height="455">
+</p>
+
+<p align="center">
+  <img src="images/me.jpg" width="256" height="200">
+</p>
 
 ## Installation
 
