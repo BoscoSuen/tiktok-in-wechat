@@ -7,7 +7,42 @@ Page({
   },
 
   onLoad: function(params) {
+    var me = this;
+    var user = app.userInfo;
 
+    wx.showLoading({
+      title: 'loading',
+    })
+
+    var serverUrl = app.serverUrl;
+
+    // 调用后端
+    wx.request({
+      url: serverUrl + '/user/query?userId=' + user.id,
+      method: "POST",
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data);
+        wx.hideLoading();
+        if (res.data.status == 200) {
+          var userInfo = res.data.data;
+          var faceUrl = "../resource/images/noneface.png";
+          if (userInfo.faceImage != null && userInfo.faceImage != '' && userInfo.faceImage != undefined) {
+            faceUrl = serverUrl + userInfo.faceImage;
+          }
+          // console.log(userInfo);
+          me.setData({
+            faceUrl: faceUrl,
+            fansCounts: userInfo.fansCounts,
+            followCounts: userInfo.followCounts,
+            receiveLikeCounts: userInfo.receiveLikeCounts,
+            nickname: userInfo.nickname
+          })
+        }
+      }
+    }) 
   },
 
   logout: function() {
@@ -44,6 +79,7 @@ Page({
   changeFace: function () {
     // https://developers.weixin.qq.com/miniprogram/dev/api/media/image/wx.chooseImage.html
     // console.log("change face");
+    var me = this;
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'],
@@ -67,16 +103,22 @@ Page({
             'content-type' : 'application/json'
           },
           success (res){
-            const data = res.data
+            const data = JSON.parse(res.data);
             wx.hideLoading();
-            if(res.data.status == 200) {
+            if(data.status == 200) {
               wx.showToast({
                 title: '上传成功!',
                 icon: "success"
               });
-            } else if (res.data.status == 500) {
+
+              var imageUrl = data.data;
+              me.setData({
+                faceUrl: serverUrl + imageUrl
+              });
+
+            } else if (data.status == 500) {
               wx.showToast({
-                title: res.data.msg
+                title: data.msg
               }); 
             }
 

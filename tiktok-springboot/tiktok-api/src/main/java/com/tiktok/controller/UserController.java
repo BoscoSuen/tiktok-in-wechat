@@ -35,7 +35,7 @@ public class UserController extends BasicController {
 	@ApiOperation(value="用户上传头像", notes = "用户上传头像的接口")
 	@ApiImplicitParam(name = "userId", value="用户id", required = true, dataType = "String", paramType = "query")
 	@PostMapping("/uploadFace")
-	public TiktokSONResult login(String userId, @RequestParam("file") MultipartFile[] files) throws Exception {
+	public TiktokSONResult uploadFace(String userId, @RequestParam("file") MultipartFile[] files) throws Exception {
 
 		if (StringUtils.isBlank(userId)) {
 			return TiktokSONResult.errorMsg("id不能为空");
@@ -90,7 +90,23 @@ public class UserController extends BasicController {
 		user.setFaceImage(uploadPathDB);
 		userService.updateUserInfo(user);
 
-		return TiktokSONResult.ok();
+		return TiktokSONResult.ok(uploadPathDB);
 	}
-	
+
+
+	@ApiOperation(value="查询用户信息", notes = "查询用户信息的接口")
+	@ApiImplicitParam(name = "userId", value="用户id", required = true, dataType = "String", paramType = "query")
+	@PostMapping("/query")
+	public TiktokSONResult query(String userId) throws Exception {
+
+		if (StringUtils.isBlank(userId)) {
+			return TiktokSONResult.errorMsg("id不能为空");
+		}
+
+		Users userInfo = userService.queryUserInfo(userId);
+		UsersVO userVO = new UsersVO();
+		BeanUtils.copyProperties(userInfo, userVO);
+
+		return TiktokSONResult.ok(userVO);
+	}
 }

@@ -1,5 +1,6 @@
 /Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-api/src/main/java/com/tiktok/controller/BasicController.java
 /Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-api/src/main/java/com/tiktok/controller/RegisterLoginController.java
+/Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-api/src/main/java/com/tiktok/WebMvcConfig.java
 /Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-api/src/main/java/com/tiktok/Swagger2.java
 /Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-api/src/main/java/com/tiktok/Application.java
 /Users/suen/project/tiktok-wechat/tiktok-springboot/tiktok-api/src/main/java/com/tiktok/controller/UserController.java
