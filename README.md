@@ -1,4 +1,4 @@
-# Tiktok in Wechat -- A miniprogram app
+# Tiktok in Wechat -- Wechat miniprogram app
 
 [![MIT License](https://img.shields.io/github/license/Yukinichi/tiktok-in-wechat)](https://github.com/Yukinichi/tiktok-in-wechat/blob/master/LICENSE)
 

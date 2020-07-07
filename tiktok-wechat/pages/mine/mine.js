@@ -126,6 +126,31 @@ Page({
         })
       }
     })
+  }, 
+  uploadVideo: function() {
+    var me = this;
+    wx.chooseVideo({
+      sourceType: ['album'],
+      success: function(res) {
+        // console.log(res);
+        var duration = res.duration;
+        var tmpHeight = res.height;
+        var tmpWidth = res.width;
+        var tmpVideoUrl = res.tempFilePath;
+        var rmpCoverUrl = res.thumbTempFilePath;
+
+        if (duration > 120) {
+          // the video is too long
+          wx.showToast({
+            title: '视频长度不能超过120秒',
+            icon: 'none',
+            duration: 2500
+          })
+        } else {
+          // 打开选择bgm的页面
+        }
+      }
+    })
   }
 
 })
