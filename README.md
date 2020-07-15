@@ -29,3 +29,4 @@ To install the prerequisite environment, you can follow the following help links
 - [x] **Register and Login** 
 - [x] **Setup Redis Session and complete logout**
 - [x] **Show user profile**
+- [x] **User upload video and choose BGM**

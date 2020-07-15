@@ -7,18 +7,19 @@ Page({
     videoParams: {}
   },
 
-  onLoad: function(params) {
+  onLoad: function() {
     var me = this;
-    console.log(params);
-    me.setData({
-      videoParams: params
-    });
+    // console.log(params);
+
+    // me.setData({
+    //   videoParams: params
+    // });
 
     wx.showLoading({
       title: 'waiting...',
     });
     var serverUrl = app.serverUrl;
-    var user = app.getGlobalUserInfo();
+    // var user = app.getGlobalUserInfo();
     
     // 调用后端
     wx.request({
@@ -26,8 +27,6 @@ Page({
       method: "POST",
       header: {
         'content-type': 'application/json', // 默认值
-        'headerUserId': user.id,
-        'headerUserToken': user.userToken
       },
       success: function (res) {
         console.log(res.data);

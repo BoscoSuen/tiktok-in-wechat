@@ -1,8 +1,7 @@
 <view>
     <form bindsubmit='upload'>
-
+    
         <radio-group name="bgmId">
-
 
           <block wx:for="{{bgmList}}">
             <view class='container'>
@@ -10,7 +9,6 @@
           <radio style='margin-top:20px;' value='{{item.id}}'></radio>
         </view>
           </block>
-
 
         </radio-group>
 
