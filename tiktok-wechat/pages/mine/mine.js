@@ -137,7 +137,7 @@ Page({
         var tmpHeight = res.height;
         var tmpWidth = res.width;
         var tmpVideoUrl = res.tempFilePath;
-        var rmpCoverUrl = res.thumbTempFilePath;
+        var tmpCoverUrl = res.thumbTempFilePath;
 
         if (duration > 120) {
           // the video is too long
@@ -148,6 +148,14 @@ Page({
           })
         } else {
           // 打开选择bgm的页面
+          wx.navigateTo({
+            url: '../chooseBgm/chooseBgm?duration=' + duration
+            + "&tmpHeight=" + tmpHeight
+            + "&tmpWidth=" + tmpWidth
+            + "&tmpVideoUrl=" + tmpVideoUrl
+            + "&tmpCoverUrl=" + tmpCoverUrl
+            ,
+          })
         }
       }
     })
