@@ -36,7 +36,7 @@ public class RegisterLoginController extends BasicController {
 
 	@ApiOperation(value = "用户注册", notes = "用户注册接口")
 	@PostMapping("/regist")
-	public TiktokSONResult Hello(@RequestBody Users user) throws Exception {
+	public TiktokSONResult regist(@RequestBody Users user) throws Exception {
 		// 1. 判断用户名密码不能为空
 		if (StringUtils.isBlank(user.getUsername()) || StringUtils.isBlank(user.getPassword())) {
 			return TiktokSONResult.errorMsg("用户名和密码不能为空");
@@ -101,7 +101,7 @@ public class RegisterLoginController extends BasicController {
 	@ApiOperation(value="用户注销", notes = "用户注销接口")
 	@ApiImplicitParam(name = "userId", value="用户id", required = true, dataType = "String", paramType = "query")
 	@PostMapping("/logout")
-	public TiktokSONResult login(String userId) throws Exception {
+	public TiktokSONResult logout(String userId) throws Exception {
 		redis.del(USER_REDIS_SESSION + ":" + userId);
 		return TiktokSONResult.ok();
 	}
